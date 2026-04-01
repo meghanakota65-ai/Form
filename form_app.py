@@ -1529,7 +1529,7 @@ Run:
 Then open: http://localhost:5001
 Share on your network: http://<your-ip>:5001
 """
-
+import os
 import sqlite3
 import json
 import re
@@ -2178,4 +2178,5 @@ if __name__ == "__main__":
 ║  API      : /api/prices/YYYY-MM-DD                   ║
 ╚══════════════════════════════════════════════════════╝
 """)
-    app.run(debug=False, host="0.0.0.0", port=5001)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host="0.0.0.0", port=port)
